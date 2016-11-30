@@ -1,0 +1,14 @@
+<div class="bar bar-header bar-positive">
+  <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users">Back</a>
+  <h1 class="title">Users</h1>
+</div>
+<div class="bar bar-subheader bar-stable calendarSubHeader">
+  <h2 class="title">{{ calendar.title }}</h2>
+  <button class="button button-small button-positive button-clear " ng-click="calendar.loadEvents()">
+    <i class="icon ion-android-sync"></i>
+  </button>
+</div>
+<calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+            range-changed="reloadSource(startTime, endTime)"
+            event-selected="onEventSelected(event)" title-changed="calendar.onViewTitleChanged(title)"
+            time-selected="onTimeSelected(selectedTime, events)" step="30"></calendar>

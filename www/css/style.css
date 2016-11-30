@@ -1,0 +1,60 @@
+.tabs .tab-item .icon.users {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/user.png');
+  background-size:contain;
+}
+
+.tabs .tab-item .icon.user-enabled {
+  background-repeat: no-repeat;
+  background-position: 50%;
+
+  background-image: url('../img/user-enabled.png');
+  background-size:contain;
+}
+
+.formContent{
+  width: 80%;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.trainingHeaderList {
+  position: relative;
+}
+
+.userListItem .userAvatar{
+  float: left;
+}
+.userListItem {
+  min-height: 60px;
+}
+.userListItem .userName{
+  float: left;
+  margin-top: 6px;
+}
+
+.iconRight{
+  float: right;
+  margin-left: 10px;
+}
+
+.bar-positive .button.backbuttonCustom {
+  font-size: 14px;
+}
+
+.calendarSubHeader {
+  height: 44px;
+}
+
+.calendarSubHeader .title {
+  position: relative;
+  height: 44px;
+  font-size: 15px;
+  line-height: 40px;
+}
+.calendar-container {
+  position: relative;
+  margin-top: 88px;
+}

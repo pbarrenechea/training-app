@@ -1,0 +1,27 @@
+<div class="bar bar-header bar-positive">
+  <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users">Back</a>
+  <h1 class="title">Users</h1>
+</div>
+<div class="list list-inset formContent">
+  <form name="authorizationForm" novalidate="" ng-submit="addU.save()">
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Nombre</span>
+    <input type="text" placeholder="Nombre" ng-model="addU.user.firstName" />
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Apellido</span>
+    <input type="text" placeholder="Apellido" ng-model="addU.user.lastName" />
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Fecha de nacimiento</span>
+    <input type="date" placeholder="Fecha de nacimiento" ng-model="addU.user.dob" />
+  </label>
+  <label class="item item-input item-floating-label">
+    <span class="input-label">Email</span>
+    <input type="text" placeholder="Email" ng-model="addU.user.email" />
+  </label>
+    <button class="button button-full button-positive" type="submit">
+      Guardar
+    </button>
+</form>
+</div>
