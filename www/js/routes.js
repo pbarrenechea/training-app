@@ -19,12 +19,12 @@
           }
         }
       }).state('tab.addUser',{
-      url: '/addUser',
+      url: '/editUser/:action/:id',
       views: {
          'tab-users': {
-          templateUrl: '../views/users.add.html',
-          controller: 'AddUserController',
-          controllerAs: 'addU'
+          templateUrl: '../views/users.edit.html',
+          controller: 'EditUserController',
+          controllerAs: 'EditU'
         }
       }
     })

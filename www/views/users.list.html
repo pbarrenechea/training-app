@@ -1,7 +1,7 @@
 <div class="bar bar-header bar-positive trainingHeaderList" >
   <h1 class="title">Users</h1>
   <a class="button icon ion-android-search" ng-click="users.showFilterBar()" ></a>
-  <a class="button icon ion-android-person-add" href="#/tab/addUser" ></a>
+  <a class="button icon ion-android-person-add" href="#/tab/editUser/new/" ></a>
 </div>
   <div class="list">
   <div class="item item-avatar userListItem" href="#" ng-repeat="user in (users.userList | orderBy: ['lastName','name'])">
@@ -10,6 +10,9 @@
     <button class="button button-small button-positive iconRight" ng-click="users.deleteUser({{user.id}})">
       <i class="icon  ion-android-delete"></i>
     </button>
+    <a class="button button-small button-positive iconRight" href="#/tab/editUser/edit/{{user.id}}">
+      <i class="icon  ion-android-create"></i>
+    </a>
 
     <a class="button button-small button-positive iconRight" href="#/tab/userCalendar/{{user.id}}">
       <i class="icon  ion-android-calendar"></i>

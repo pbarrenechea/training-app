@@ -50,7 +50,7 @@
      * @returns {object} user information
      */
     function GetById(id) {
-      return DB.query('SELECT * FROM users where id = ' + i)
+      return DB.query('SELECT * FROM users where id = ' + id)
         .then(function(result){
           if(result.rows.length > 0){
             return DB.fetch(result);
@@ -88,9 +88,14 @@
      * @returns {object} response of the operation
      */
     function Update(user) {
-      /**
-       * @TODO: query to update user
-       */
+      var query = "UPDATE users set firstName = '" + user.firstName + "', lastName = '" + user.lastName + "'";
+      query += ", dob = '" + user.dob + "', email = '" + user.email + "' ";
+      query += "WHERE id = " + user.id;
+      return DB.query(query).then(function(res){
+        service.logger.log("Succesfully updated");
+      }, function(err){
+        service.logger.error(err);
+      });
     }
 
     /**
