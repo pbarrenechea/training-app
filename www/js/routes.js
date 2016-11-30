@@ -20,6 +20,7 @@
         }
       }).state('tab.addUser',{
       url: '/editUser/:action/:id',
+      cache:false,
       views: {
          'tab-users': {
           templateUrl: '../views/users.edit.html',

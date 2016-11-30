@@ -43,7 +43,7 @@
     }
 
     function save(){
-      if( vm.user.action === "save" ){
+      if( vm.user.action === "new" ){
         createUser();
       }else{
         updateUser();
