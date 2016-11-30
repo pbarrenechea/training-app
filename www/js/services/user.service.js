@@ -89,7 +89,7 @@
      */
     function Update(user) {
       var query = "UPDATE users set firstName = '" + user.firstName + "', lastName = '" + user.lastName + "'";
-      query += ", dob = '" + user.dob + "', email = '" + user.email + "' ";
+      query += ", dob = " + user.dob + ", email = '" + user.email + "' ";
       query += "WHERE id = " + user.id;
       return DB.query(query).then(function(res){
         service.logger.log("Succesfully updated");

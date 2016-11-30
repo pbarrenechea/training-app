@@ -24,6 +24,7 @@
           for(var k in user){
             vm.user[k] = user[k];
           }
+          vm.user.dobTmp = new Date(Number(vm.user.dob));
         });
       }
     }
@@ -43,6 +44,7 @@
     }
 
     function save(){
+      vm.user.dob = vm.user.dobTmp.getTime();
       if( vm.user.action === "new" ){
         createUser();
       }else{
