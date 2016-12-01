@@ -2,28 +2,30 @@
   <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users">Back</a>
   <h1 class="title">Users</h1>
 </div>
-<div class="list list-inset formContent">
-  <form name="authorizationForm" novalidate="" ng-submit="EditU.save()">
-  <label class="item item-input item-floating-label">
-    <span class="input-label">Nombre</span>
-    <input type="text" placeholder="Nombre" ng-model="EditU.user.firstName" />
-  </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label">Apellido</span>
-    <input type="text" placeholder="Apellido" ng-model="EditU.user.lastName" />
-  </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label">Fecha de nacimiento</span>
-    <input type="date" placeholder="Fecha de nacimiento" ng-model="EditU.user.dobTmp" />
-  </label>
-  <label class="item item-input item-floating-label">
-    <span class="input-label">Email</span>
-    <input type="text" placeholder="Email" ng-model="EditU.user.email" />
-  </label>
-    <input type="hidden" ng-model="EditU.user.id">
-    <input type="hidden" ng-model="EditU.user.action">
-    <button class="button button-full button-positive" type="submit">
-      Guardar
-    </button>
-</form>
-</div>
+<ion-scroll direction="xy" >
+  <div class="list list-inset formContent">
+    <form name="authorizationForm" novalidate="" ng-submit="EditU.save()">
+    <label class="item item-input ">
+      <input type="text" placeholder="Nombre" ng-model="EditU.user.firstName" />
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="Apellido" ng-model="EditU.user.lastName" />
+    </label>
+    <label class="item item-input item-floating-label">
+      <input type="date" placeholder="Fecha de nacimiento" ng-model="EditU.user.dobTmp" />
+    </label>
+    <label class="item item-input">
+      <input type="text" placeholder="Email" ng-model="EditU.user.email" />
+    </label>
+    <label class="item item-input ">
+      <ion-profile-picture ng-model="EditU.user.picture" />
+    </label>
+
+      <input type="hidden" ng-model="EditU.user.id">
+      <input type="hidden" ng-model="EditU.user.action">
+      <button class="button button-full button-positive" type="submit">
+        Guardar
+      </button>
+  </form>
+  </div>
+</ion-scroll>
