@@ -13,6 +13,13 @@
             {name: 'email', type: 'text'},
             {name: 'picture', type: 'text'}
           ]
+        },
+        {
+          name: 'sports',
+          columns: [
+            {name: 'id', type: 'integer primary key'},
+            {name: 'name', type: 'text'}
+          ]
         }
       ]
     });

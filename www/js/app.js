@@ -7,6 +7,7 @@ angular.module('Training', ['ionic', 'jett.ionic.filter.bar',
   'ui.rCalendar', 'ion-profile-picture', 'ngMessages'])
   .config(function($ionicConfigProvider){
     //$ionicConfigProvider.views.transition('none');
+    $ionicConfigProvider.tabs.position("bottom");
   })
 .run(function($ionicPlatform, DB) {
   DB.init();

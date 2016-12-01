@@ -1,6 +1,6 @@
 /**
  * @ngdoc service
- * @name Training.UserService
+ * @name Training.SportService
  * @requires $timeout
  * @requires $filter
  * @requires $q
@@ -12,10 +12,10 @@
   'use strict';
   angular
     .module('Training')
-    .factory('UserService', UserService);
+    .factory('SportService', SportService);
 
-  UserService.$inject = ['DB', '$log'];
-  function UserService( DB, $log) {
+  SportService.$inject = ['DB', '$log'];
+  function SportService( DB, $log) {
 
     var service = {};
     service.logger = $log;
@@ -29,13 +29,13 @@
     /**
      * @ngdoc method
      * @name GetAll
-     * @methodOf Training.UserService
+     * @methodOf Training.SportService
      * @description
-     * Returns a json array with all the users
-     * @returns {array} array with all the users
+     * Returns a json array with all the sports
+     * @returns {array} array with all the sports
      */
     function GetAll() {
-      return DB.query('SELECT * FROM users')
+      return DB.query('SELECT * FROM sports')
         .then(function(result){
           return DB.fetchAll(result);
         });
@@ -44,14 +44,14 @@
     /**
      * @ngdoc method
      * @name GetById
-     * @methodOf Training.UserService
+     * @methodOf Training.SportService
      * @description
-     * Returns a json with the user information
-     * @param {string} id key of the user
-     * @returns {object} user information
+     * Returns a json with the sport information
+     * @param {string} id key of the sport
+     * @returns {object} sport information
      */
     function GetById(id) {
-      return DB.query('SELECT * FROM users where id = ' + id)
+      return DB.query('SELECT * FROM sports where id = ' + id)
         .then(function(result){
           if(result.rows.length > 0){
             return DB.fetch(result);
@@ -64,15 +64,15 @@
     /**
      * @ngdoc method
      * @name Create
-     * @methodOf Training.UserService
+     * @methodOf Training.SportService
      * @description
-     * stores a user in data base
-     * @param {object} user object with the user information
+     * stores a sport in data base
+     * @param {object} sport object with the sport information
      * @returns {object} response of the operation
      */
-    function Create(user) {
-      var query = "INSERT INTO users (firstName, lastName, dob, email, picture) VALUES (?,?,?,?,?)";
-      return DB.query(query, [user.firstName, user.lastName, user.dob, user.email, user.picture]).then(function(res){
+    function Create(sport) {
+      var query = "INSERT INTO sports (name) VALUES (?)";
+      return DB.query(query, [sport.name]).then(function(res){
         service.logger.log("Succesfully inserted");
       }, function(err){
         service.logger.error(err);
@@ -82,17 +82,15 @@
     /**
      * @ngdoc method
      * @name Update
-     * @methodOf Training.UserService
+     * @methodOf Training.SportService
      * @description
-     * Updates a user
-     * @param {object} user object with the user information
+     * Updates a sport
+     * @param {object} sport object with the sport information
      * @returns {object} response of the operation
      */
-    function Update(user) {
-      var query = "UPDATE users set firstName = '" + user.firstName + "', lastName = '" + user.lastName + "'";
-      query += ", dob = " + user.dob + ", email = '" + user.email + "' ";
-      query += ", picture = '" + user.picture + "' ";
-      query += "WHERE id = " + user.id;
+    function Update(sport) {
+      var query = "UPDATE sports set mame = '" + sport.name + "' ";
+      query += " WHERE id = " + sport.id;
       return DB.query(query).then(function(res){
         service.logger.log("Succesfully updated");
       }, function(err){
@@ -103,16 +101,16 @@
     /**
      * @ngdoc method
      * @name Delete
-     * @methodOf Training.UserService
+     * @methodOf Training.SportService
      * @description
-     * Updates a user
-     * @param {string} id key of the user
+     * Updates a sport
+     * @param {string} id key of the sport
      * @returns {object} response of the operation
      */
     function Delete(id) {
-      return DB.query('DELETE FROM users where id = ' + id)
+      return DB.query('DELETE FROM sports where id = ' + id)
         .then(function(response){
-          service.logger.log('Deleted user  ' + id)
+          service.logger.log('Deleted sport  ' + id)
         });
     }
   }
