@@ -1,7 +1,7 @@
 .tabs .tab-item .icon.users {
   background-repeat: no-repeat;
   background-position: 50%;
-  height: 100%;
+  /*height: 100%;*/
   background-image: url('../img/user.png');
   background-size:contain;
 }
@@ -17,7 +17,7 @@
 .formContent{
   width: 80%;
   margin: auto;
-  margin-top: 10%;
+  top: 50px;
 }
 
 .trainingHeaderList {
@@ -57,4 +57,38 @@
 .calendar-container {
   position: relative;
   margin-top: 88px;
+}
+
+.error-container {
+  margin: 5px 0;
+}
+
+.error-container:last-child {
+  margin: 5px 0 0;
+}
+
+.error {
+  padding: 10px 16px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 11px;
+   color: #555;
+  vertical-align: middle;
+}
+
+.error i {
+  font-size: 24px;
+  color: #B83E2C;
+  vertical-align: middle;
+}
+
+.last-error-container > .error {
+  padding: 4px 16px 0;
+}
+
+.has-errors {
+  border-bottom: 3px solid #B83E2C;
+}
+.scroll-view {
+  width: 100%;
+  height: 100%;
 }

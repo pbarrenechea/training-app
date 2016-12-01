@@ -43,14 +43,15 @@
       UserService.Update(vm.user).then(updateCallback)
     }
 
-    function save(){
-      vm.user.dob = vm.user.dobTmp.getTime();
-      if( vm.user.action === "new" ){
-        createUser();
-      }else{
-        updateUser();
+    function save(form){
+      if( form.$valid ){
+        vm.user.dob = vm.user.dobTmp.getTime();
+        if( vm.user.action === "new" ){
+          createUser();
+        }else{
+          updateUser();
+        }
       }
-
     }
   };
 
