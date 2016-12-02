@@ -2,12 +2,13 @@
   'use strict';
 
   /** @ngInject */
-  function UserCalendarController($scope, $http, $log, UserService) {
+  function UserCalendarController($stateParams, $log, UserService) {
     var vm =  this;
     /**
      * Attributes
      */
     vm.logger = $log;
+    vm.user = {};
     vm.currentDate = new Date();
     vm.title = "";
     vm.mode = "";
@@ -15,6 +16,20 @@
 
     vm.onViewTitleChanged = onViewTitleChanged;
     vm.loadEvents = loadEvents;
+
+    init();
+
+    function init(){
+      vm.user.id = $stateParams.userId;
+      if( vm.user.id !== "" ){
+        UserService.GetById(vm.user.id).then(function(user){
+          for(var k in user){
+            vm.user[k] = user[k];
+          }
+          vm.user.dobTmp = new Date(Number(vm.user.dob));
+        });
+      }
+    }
 
     function onViewTitleChanged(newTitle){
       vm.title = newTitle;
@@ -64,6 +79,6 @@
   };
 
 
-  UserCalendarController.$inject = ["$scope","$http", "$log", "UserService"];
+  UserCalendarController.$inject = ["$stateParams", "$log", "UserService"];
   angular.module('Training').controller('UserCalendarController',UserCalendarController);
 })();

@@ -16,6 +16,7 @@
     //vm.showFilterBar = showFilterBar;
     //vm.filterBar;
     vm.deleteSport = deleteSport;
+    vm.showFilterBar = showFilterBar;
 
     reloadSports();
 
@@ -31,8 +32,19 @@
         reloadSports();
       });
     }
+    
+    function showFilterBar(){
+      vm.logger.log("Triggering filter bar");
+      vm.filterBar = $ionicFilterBar.show({
+        items: vm.sportList,
+        expression: function (filterText, value) {
+          return value.name.toLowerCase().indexOf(filterText.toLowerCase()) !== -1;},
+        update: function (filteredItems, filterText) {
+          vm.sportList = filteredItems;
+        }
+      });
+    }
   };
-
 
   SportsController.$inject = ["$log", "SportService","$ionicFilterBar", "$location"];
   angular.module('Training').controller('SportsController',SportsController);

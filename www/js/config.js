@@ -20,6 +20,18 @@
             {name: 'id', type: 'integer primary key'},
             {name: 'name', type: 'text'}
           ]
+        },
+        {
+          name: 'activity',
+          columns:[
+            {name: 'id', type: 'integer primary key'},
+            {name: 'activity', type: 'text'},
+            {name: 'time', type: 'text'},
+            {name: 'distance', type: 'text'},
+            {name: 'frequency', type: 'text'},
+            {name: 'quantity', type: 'text'},
+            {name: 'date', type: 'long'}
+          ]
         }
       ]
     });

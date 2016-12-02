@@ -8,6 +8,7 @@ angular.module('Training', ['ionic', 'jett.ionic.filter.bar',
   .config(function($ionicConfigProvider){
     //$ionicConfigProvider.views.transition('none');
     $ionicConfigProvider.tabs.position("bottom");
+    $ionicConfigProvider.backButton.text(false);
   })
 .run(function($ionicPlatform, DB) {
   DB.init();

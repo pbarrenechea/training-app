@@ -1,10 +1,11 @@
-<div class="bar bar-header bar-positive">
-  <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users">Back</a>
-  <h1 class="title">Users</h1>
+<div class="bar bar-header bar-dark">
+  <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users"></a>
+  <h1 class="title">Plan de entrenamiento para {{calendar.user.firstName}} {{ calendar.user.lastName }}</h1>
+  <a class="button icon ion-android-person-add" href="#/tab/editUser/new/" ></a>
 </div>
 <div class="bar bar-subheader bar-stable calendarSubHeader">
   <h2 class="title">{{ calendar.title }}</h2>
-  <button class="button button-small button-positive button-clear " ng-click="calendar.loadEvents()">
+  <button class="button button-small button-dark button-clear " ng-click="calendar.loadEvents()">
     <i class="icon ion-android-sync"></i>
   </button>
 </div>

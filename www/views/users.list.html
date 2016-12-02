@@ -1,20 +1,20 @@
-<div class="bar bar-header bar-positive trainingHeaderList" >
-  <h1 class="title">Users</h1>
+<div class="bar bar-header bar-dark trainingHeaderList" >
   <a class="button icon ion-android-search" ng-click="users.showFilterBar()" ></a>
+  <h1 class="title">Atletas</h1>
   <a class="button icon ion-android-person-add" href="#/tab/editUser/new/" ></a>
 </div>
   <div class="list">
   <div class="item item-avatar userListItem" href="#" ng-repeat="user in (users.userList | orderBy: ['lastName','name'])">
-    <img src="{{user.picture}}" class="userAvatar">
+    <img ng-src="{{user.picture}}" err-src="img/icon-user-default.png" class="userAvatar">
     <span class="userName">{{ user.firstName }} {{ user.lastName }}</span>
-    <button class="button button-small button-positive iconRight" ng-click="users.deleteUser({{user.id}})">
+    <button class="button button-small button-dark iconRight" ng-click="users.deleteUser({{user.id}})">
       <i class="icon  ion-android-delete"></i>
     </button>
-    <a class="button button-small button-positive iconRight" href="#/tab/editUser/edit/{{user.id}}">
+    <a class="button button-small button-dark iconRight" href="#/tab/editUser/edit/{{user.id}}">
       <i class="icon  ion-android-create"></i>
     </a>
 
-    <a class="button button-small button-positive iconRight" href="#/tab/userCalendar/{{user.id}}">
+    <a class="button button-small button-dark iconRight" href="#/tab/userCalendar/{{user.id}}">
       <i class="icon  ion-android-calendar"></i>
     </a>
   </div>

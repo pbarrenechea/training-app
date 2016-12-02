@@ -17,7 +17,6 @@
     vm.showFilterBar = showFilterBar;
     vm.filterBar;
     vm.deleteUser = deleteUser;
-
     reloadUsers();
 
     function reloadUsers(){
@@ -44,7 +43,6 @@
         update: function (filteredItems, filterText) {
           vm.userList = filteredItems;
         }
-
       });
     }
 
