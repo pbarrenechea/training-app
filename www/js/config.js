@@ -22,15 +22,18 @@
           ]
         },
         {
-          name: 'activity',
+          name: 'activities',
           columns:[
             {name: 'id', type: 'integer primary key'},
+            {name: 'userId', type: 'integer'},
             {name: 'activity', type: 'text'},
-            {name: 'time', type: 'text'},
-            {name: 'distance', type: 'text'},
-            {name: 'frequency', type: 'text'},
-            {name: 'quantity', type: 'text'},
-            {name: 'date', type: 'long'}
+            {name: 'hours', type: 'long'},
+            {name: 'minutes', type: 'long'},
+            {name: 'seconds', type: 'long'},
+            {name: 'distance', type: 'long'},//metres
+            {name: 'frequency', type: 'long'},
+            {name: 'quantity', type: 'long'},
+            {name: 'doa', type: 'long'}//day of activity
           ]
         }
       ]

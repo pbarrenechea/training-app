@@ -1,0 +1,62 @@
+<div class="bar bar-header bar-dark">
+  <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/userCalendar/{{activities.userId}}"></a>
+  <h1 class="title">Plan de entrenamiento para {{activities.user.firstName}} {{ activities.user.lastName }}</h1>
+</div>
+<ion-scroll direction="y" >
+<div class="list list-inset formContent">
+  <div class="activities-button-toolbar">
+    <button class="button icon-left button-small button-dark ion-android-add" ng-click="activities.addActivity()"> Agregar actividad</button>
+  </div>
+  <form name="editActivityForm" novalidate="" ng-submit="activities.save(editActivityForm)">
+    <label class="item item-input " ng-class="{ 'has-errors' : editActivityForm.doa.$invalid, 'no-errors' : editActivityForm.doa.$valid }">
+      <span class="input-label">Fecha de actividad</span>
+      <input type="date" name="doa"   ng-model="activities.activityDate" required />
+    </label>
+    <div ng-messages="editActivityForm.doa.$error" class="error-container" role="alert">
+      <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
+    </div>
+
+    <div class="activityFormElement" ng-repeat="activity in activities.activities">
+    <!-- @TODO: make a directive with this html -->
+        <div class="activity-item-toolbar">
+          <span>Actividad #{{$index + 1 }}</span>
+          <button type="button" ng-click="activities.deleteActivity($index)" class="button button-small item-button-right button-dark icon ion-trash-b" ></button>
+          <button type="button" ng-click="activities.toggleActivityVisibility($index)" class="button button-small item-button-right button-dark icon" ng-class="{'ion-android-arrow-dropup-circle': activity.visible, 'ion-android-arrow-dropdown-circle': !activity.visible}" ></button>
+        </div>
+        <div ng-show="activity.visible">
+        <label class="item item-input ">
+          <span class="input-label">Actividad</span>
+          <select  ng-model="activity.activity">
+            <option ng-repeat="sport in activities.sports" value="{{sport.name}}" >{{sport.name}}</option>
+          </select>
+        </label>
+        <div class="item activity-time-field">
+          <span class="input-label">Tiempo de actividad</span>
+          <input type="number" class="activity-time-input" name="activityHours" ng-model="activity.hours" min="0" /><span class="activity-time-label">horas</span>
+          <input type="number" class="activity-time-input" name="activityMinutes" ng-model="activity.minutes" min="0" max="60" /><span class="activity-time-label">minutos</span>
+          <input type="number" class="activity-time-input" name="activitySeconds" ng-model="activity.seconds" min="0" max="60" /><span class="activity-time-label">segundos</span>
+        </div>
+        <label class="item ">
+          <span class="input-label">Distancia</span>
+          <input type="number" class="activity-time-input" ng-model="activity.distance" /><span class="activity-time-label">metros</span>
+        </label>
+        <label class="item ">
+          <span class="input-label">Series</span>
+          <input type="number" class="activity-time-input" ng-model="activity.frequency" />
+        </label>
+        <label class="item  ">
+          <span class="input-label">Repeticiones</span>
+          <input type="number" class="activity-time-input" ng-model="activity.quantity" />
+        </label>
+        </div>
+      <hr class="item-activity-separator"/>
+    </div>
+<!-- @TODO: directive -->
+    <input type="hidden" ng-model="activities.userId">
+    <input type="hidden" ng-model="activities.action">
+    <button class="button button-full button-dark" type="submit">
+      Guardar
+    </button>
+  </form>
+</div>
+ </ion-scroll>

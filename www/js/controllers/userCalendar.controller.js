@@ -2,7 +2,7 @@
   'use strict';
 
   /** @ngInject */
-  function UserCalendarController($stateParams, $log, UserService) {
+  function UserCalendarController($stateParams, $log, UserService, ActivitiesService) {
     var vm =  this;
     /**
      * Attributes
@@ -15,7 +15,8 @@
     vm.eventSource = [];
 
     vm.onViewTitleChanged = onViewTitleChanged;
-    vm.loadEvents = loadEvents;
+    vm.userActivities = [];
+    vm.loadActivities = loadActivities;
 
     init();
 
@@ -27,6 +28,7 @@
             vm.user[k] = user[k];
           }
           vm.user.dobTmp = new Date(Number(vm.user.dob));
+          loadActivities();
         });
       }
     }
@@ -35,50 +37,24 @@
       vm.title = newTitle;
     }
 
-    function loadEvents(){
-      vm.eventSource = createRandomEvents();
-    }
-
-    function createRandomEvents() {
-      var events = [];
-      for (var i = 0; i < 50; i += 1) {
-        var date = new Date();
-        var eventType = Math.floor(Math.random() * 2);
-        var startDay = Math.floor(Math.random() * 90) - 45;
-        var endDay = Math.floor(Math.random() * 2) + startDay;
-        var startTime;
-        var endTime;
-        if (eventType === 0) {
-          startTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + startDay));
-          if (endDay === startDay) {
-            endDay += 1;
-          }
-          endTime = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate() + endDay));
-          events.push({
-            title: 'All Day - ' + i,
-            startTime: startTime,
-            endTime: endTime,
-            allDay: true
-          });
-        } else {
-          var startMinute = Math.floor(Math.random() * 24 * 60);
-          var endMinute = Math.floor(Math.random() * 180) + startMinute;
-          startTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + startDay, 0, date.getMinutes() + startMinute);
-          endTime = new Date(date.getFullYear(), date.getMonth(), date.getDate() + endDay, 0, date.getMinutes() + endMinute);
-          events.push({
-            title: 'Event - ' + i,
-            startTime: startTime,
-            endTime: endTime,
-            allDay: false
-          });
+    function loadActivities(){
+      //vm.userActivities = createRandomEvents();
+      /**
+       * @TODO: see how the current month is calculated
+       */
+      ActivitiesService.GetAll(vm.user.id, 1480820400000).then(function(activities){
+        vm.userActivities = activities;
+        for( var i = 0; i < vm.userActivities.length; i++ ){
+          vm.userActivities[i].startTime = new Date(Number(vm.userActivities[i].doa));
+          vm.userActivities[i].endTime = new Date(Number(vm.userActivities[i].doa)) + 1;
+          vm.userActivities[i].allDay = true;
+          vm.userActivities[i].title = vm.userActivities[i].activity;
         }
-      }
-      return events;
+      });
     }
 
   };
 
-
-  UserCalendarController.$inject = ["$stateParams", "$log", "UserService"];
+  UserCalendarController.$inject = ["$stateParams", "$log", "UserService", "ActivitiesService"];
   angular.module('Training').controller('UserCalendarController',UserCalendarController);
 })();

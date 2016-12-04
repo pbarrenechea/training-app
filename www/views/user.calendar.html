@@ -1,15 +1,15 @@
 <div class="bar bar-header bar-dark">
   <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users"></a>
   <h1 class="title">Plan de entrenamiento para {{calendar.user.firstName}} {{ calendar.user.lastName }}</h1>
-  <a class="button icon ion-android-person-add" href="#/tab/editUser/new/" ></a>
+  <a class="button icon ion-android-person-add" href="#/tab/editActivity/new/{{calendar.user.id}}/" ></a>
 </div>
 <div class="bar bar-subheader bar-stable calendarSubHeader">
   <h2 class="title">{{ calendar.title }}</h2>
-  <button class="button button-small button-dark button-clear " ng-click="calendar.loadEvents()">
+  <button class="button button-small button-dark button-clear " ng-click="calendar.loadActivities()">
     <i class="icon ion-android-sync"></i>
   </button>
 </div>
-<calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
-            range-changed="reloadSource(startTime, endTime)"
+<calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.userActivities"
+            range-changed="calendar.loadActivities(startTime, endTime)"
             event-selected="onEventSelected(event)" title-changed="calendar.onViewTitleChanged(title)"
             time-selected="onTimeSelected(selectedTime, events)" step="30"></calendar>

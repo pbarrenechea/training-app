@@ -39,6 +39,16 @@
           }
         }
     })
+    .state('tab.userActivities', {
+      url: '/editActivity/:action/:userId/:date',
+      views: {
+        'tab-users': {
+          templateUrl: 'views/activities.form.html',
+          controller: 'ActivitiesController',
+          controllerAs: 'activities'
+        }
+      }
+    })
     .state('tab.sports', {
         url: '/sports',
         cache: false,

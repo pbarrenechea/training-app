@@ -89,7 +89,7 @@
      * @returns {object} response of the operation
      */
     function Update(sport) {
-      var query = "UPDATE sports set mame = '" + sport.name + "' ";
+      var query = "UPDATE sports set name = '" + sport.name + "' ";
       query += " WHERE id = " + sport.id;
       return DB.query(query).then(function(res){
         service.logger.log("Succesfully updated");

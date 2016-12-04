@@ -92,3 +92,49 @@
   width: 100%;
   height: 100%;
 }
+
+.activity-time-input[type=number] , .activity-time-field .activity-time-input {
+  float: left;
+  border: 1px solid #ccc;
+  width: 60px;
+  margin-top: 10px;
+}
+
+.activity-time-field .activity-time-label, .activity-time-label {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+  margin-top: 15px;
+}
+.activities-button-toolbar{
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.activities-button-toolbar .button-small.icon:before{
+  margin-top: 6px;
+}
+
+.activity-item-toolbar {
+  margin-bottom: 20px;
+  margin-top: 10px;
+  float: left;
+  width:100%;
+}
+
+.activity-item-toolbar span{
+  margin-top: 8px;
+  float: left;
+  font-size: 16px;
+}
+
+.activity-item-toolbar button {
+  float:right;
+  margin-left: 10px;
+}
+
+.item-activity-separator{
+  margin-top: 10px;
+  color: #CCC;
+}
