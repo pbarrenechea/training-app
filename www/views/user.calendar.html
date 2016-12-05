@@ -9,7 +9,12 @@
     <i class="icon ion-android-sync"></i>
   </button>
 </div>
-<calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.userActivities"
-            range-changed="calendar.loadActivities(startTime, endTime)"
-            event-selected="onEventSelected(event)" title-changed="calendar.onViewTitleChanged(title)"
-            time-selected="onTimeSelected(selectedTime, events)" step="30"></calendar>
+<ion-scroll direction="y" >
+<calendar ng-model="calendar.currentDate"
+          calendar-mode="month"
+          query-mode="calendar.queryMode"
+          event-source="calendar.userActivities"
+          title-changed="calendar.onViewTitleChanged(title)"
+          range-changed="calendar.onRangeChanged(startTime, endTime)"
+          step="30"></calendar>
+</ion-scroll>

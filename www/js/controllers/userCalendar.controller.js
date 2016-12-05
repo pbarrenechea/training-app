@@ -12,11 +12,15 @@
     vm.currentDate = new Date();
     vm.title = "";
     vm.mode = "";
-    vm.eventSource = [];
+    vm.queryMode = "remote";
+    vm.userActivities = [];
+    vm.startTime;
+    vm.endTime;
 
     vm.onViewTitleChanged = onViewTitleChanged;
-    vm.userActivities = [];
+    vm.onRangeChanged = onRangeChanged;
     vm.loadActivities = loadActivities;
+
 
     init();
 
@@ -28,7 +32,6 @@
             vm.user[k] = user[k];
           }
           vm.user.dobTmp = new Date(Number(vm.user.dob));
-          loadActivities();
         });
       }
     }
@@ -37,18 +40,25 @@
       vm.title = newTitle;
     }
 
-    function loadActivities(){
-      //vm.userActivities = createRandomEvents();
-      /**
-       * @TODO: see how the current month is calculated
-       */
-      ActivitiesService.GetAll(vm.user.id, 1480820400000).then(function(activities){
+    function onRangeChanged(startTime, endTime){
+      vm.logger.info("onRangeChanged called");
+      loadActivities(startTime.getTime(), endTime.getTime())
+    }
+
+    function loadActivities(startTime, endTime){
+      ActivitiesService.getActivitiesByRange(vm.user.id, startTime, endTime).then(function(activities){
         vm.userActivities = activities;
         for( var i = 0; i < vm.userActivities.length; i++ ){
           vm.userActivities[i].startTime = new Date(Number(vm.userActivities[i].doa));
           vm.userActivities[i].endTime = new Date(Number(vm.userActivities[i].doa)) + 1;
           vm.userActivities[i].allDay = true;
-          vm.userActivities[i].title = vm.userActivities[i].activity;
+          vm.userActivities[i].title ="<b>" + vm.userActivities[i].activity + ":</b> <br>";
+          vm.userActivities[i].title += "Tiempo: " + vm.userActivities[i].hours + " horas ";
+          vm.userActivities[i].title +=  vm.userActivities[i].minutes + " minutos ";
+          vm.userActivities[i].title +=  vm.userActivities[i].seconds + " segundos <br>";
+          vm.userActivities[i].title +=  "Distancia: " + vm.userActivities[i].distance + " metros <br>";
+          vm.userActivities[i].title +=  "Series: " + vm.userActivities[i].frequency + "<br>";
+          vm.userActivities[i].title +=  "Repeticiones: " + vm.userActivities[i].quantity;
         }
       });
     }

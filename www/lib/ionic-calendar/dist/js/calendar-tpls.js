@@ -1310,7 +1310,7 @@ angular.module("templates/rcalendar/monthviewDisplayEvent.html", []).run(["$temp
 
 angular.module("templates/rcalendar/monthviewEventDetail.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/rcalendar/monthviewEventDetail.html",
-    "<ion-content class=\"event-detail-container\" has-bouncing=\"false\" ng-show=\"showEventDetail\" overflow-scroll=\"false\">\n" +
+    "<ion-content class=\"event-detail-container\" has-bouncing=\"true\" ng-show=\"showEventDetail\" overflow-scroll=\"true\">\n" +
     "    <table class=\"table table-bordered table-striped table-fixed event-detail-table\">\n" +
     "        <tr ng-repeat=\"event in selectedDate.events\" ng-click=\"eventSelected({event:event})\">\n" +
     //"            <td ng-if=\"!event.allDay\" class=\"monthview-eventdetail-timecolumn\">{{::event.startTime|date: 'HH:mm'}}\n" +
@@ -1318,7 +1318,7 @@ angular.module("templates/rcalendar/monthviewEventDetail.html", []).run(["$templ
     //"                {{::event.endTime|date: 'HH:mm'}}\n" +
     //"            </td>\n" +
     //"            <td ng-if=\"event.allDay\" class=\"monthview-eventdetail-timecolumn\">All day</td>\n" +
-    "            <td class=\"event-detail\">{{::event.title}}</td>\n" +
+    "            <td class=\"event-detail\"><div ng-bind-html='event.title'></div></td>\n" +
     "        </tr>\n" +
     "        <tr ng-if=\"!selectedDate.events\">\n" +
     "            <td class=\"no-event-label\" ng-bind=\"::noEventsLabel\"></td>\n" +

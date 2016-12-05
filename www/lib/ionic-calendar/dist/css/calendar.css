@@ -76,6 +76,7 @@
 .event-detail-container {
     border-top: 2px darkgrey solid;
     margin-top: 262px;
+    padding-bottom: 30%;
 }
 
 .event-detail {

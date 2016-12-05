@@ -25,6 +25,7 @@
     service.Update = Update;
     service.Delete = Delete;
     service.getActiviesByDay = getActiviesByDay;
+    service.getActivitiesByRange = getActivitiesByRange;
     service.deleteActivitiesByDate = deleteActivitiesByDate;
 
     return service;
@@ -38,6 +39,24 @@
      */
     function GetAll() {
       return DB.query('SELECT * FROM activities')
+        .then(function(result){
+          return DB.fetchAll(result);
+        });
+    }
+
+    /**
+     * @ngdoc method
+     * @name getActivitiesByRange
+     * @methodOf Training.ActivitiesService
+     * @description
+     * Returns a json array with all the user activities activities on the selected range
+     * @param userId
+     * @param startDate
+     * @param endDate
+     * @returns {array}
+     */
+    function getActivitiesByRange(userId, startDate, endDate){
+      return DB.query('SELECT * from activities where userId = ' + userId + ' and ( doa >= ' + startDate + " and doa <= " + endDate + ")" )
         .then(function(result){
           return DB.fetchAll(result);
         });
