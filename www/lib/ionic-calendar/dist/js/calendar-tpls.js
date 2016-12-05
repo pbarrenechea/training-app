@@ -13,7 +13,7 @@ angular.module('ui.rCalendar', ['ui.rCalendar.tpls'])
         startingDayMonth: 0,
         startingDayWeek: 0,
         allDayLabel: 'all day',
-        noEventsLabel: 'No Events',
+        noEventsLabel: 'Sin actividades',
         eventSource: null,
         queryMode: 'local',
         step: 60,
@@ -1176,7 +1176,8 @@ angular.module('ui.rCalendar', ['ui.rCalendar.tpls'])
                 ctrl.refreshView();
             }
         };
-    }]);
+    }])
+  .filter();
 
 angular.module("templates/rcalendar/calendar.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("templates/rcalendar/calendar.html",
