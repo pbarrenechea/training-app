@@ -1,7 +1,7 @@
 <div class="bar bar-header bar-dark">
   <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users"></a>
   <h1 class="title">Plan de entrenamiento para {{calendar.user.firstName}} {{ calendar.user.lastName }}</h1>
-  <a class="button icon ion-android-person-add" href="#/tab/editActivity/new/{{calendar.user.id}}/" ></a>
+  <a class="button icon ion-android-person-add" href="#/tab/editActivity/{{calendar.user.id}}/" ></a>
 </div>
 <div class="bar bar-subheader bar-stable calendarSubHeader">
   <h2 class="title">{{ calendar.title }}</h2>
@@ -16,5 +16,6 @@
           event-source="calendar.userActivities"
           title-changed="calendar.onViewTitleChanged(title)"
           range-changed="calendar.onRangeChanged(startTime, endTime)"
+          event-selected="calendar.editDayActivities(event)"
           step="30"></calendar>
 </ion-scroll>

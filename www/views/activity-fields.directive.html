@@ -1,0 +1,34 @@
+<div>
+<div class="activity-item-toolbar">
+  <span>Actividad #{{index + 1 }}</span>
+  <button type="button" ng-click="deleteActivity(index)" class="button button-small item-button-right button-dark icon ion-trash-b" ></button>
+  <button type="button" ng-click="toggleActivity(index)" class="button button-small item-button-right button-dark icon" ng-class="{'ion-android-arrow-dropup-circle': activity.visible, 'ion-android-arrow-dropdown-circle': !activity.visible}" ></button>
+</div>
+<div ng-show="activity.visible">
+  <label class="item item-input ">
+    <span class="input-label">Actividad</span>
+    <select  ng-model="activity.activity">
+      <option ng-repeat="sport in sports" value="{{sport.name}}" >{{sport.name}}</option>
+    </select>
+  </label>
+  <div class="item activity-time-field">
+    <span class="input-label">Tiempo de actividad</span>
+    <input type="number" class="activity-time-input" name="activityHours" ng-model="activity.hours" min="0" /><span class="activity-time-label">horas</span>
+    <input type="number" class="activity-time-input" name="activityMinutes" ng-model="activity.minutes" min="0" max="60" /><span class="activity-time-label">minutos</span>
+    <input type="number" class="activity-time-input" name="activitySeconds" ng-model="activity.seconds" min="0" max="60" /><span class="activity-time-label">segundos</span>
+  </div>
+  <label class="item ">
+    <span class="input-label">Distancia</span>
+    <input type="number" class="activity-time-input" ng-model="activity.distance" /><span class="activity-time-label">metros</span>
+  </label>
+  <label class="item ">
+    <span class="input-label">Series</span>
+    <input type="number" class="activity-time-input" ng-model="activity.frequency" />
+  </label>
+  <label class="item  ">
+    <span class="input-label">Repeticiones</span>
+    <input type="number" class="activity-time-input" ng-model="activity.quantity" />
+  </label>
+</div>
+<hr class="item-activity-separator"/>
+</div>

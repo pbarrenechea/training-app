@@ -2,7 +2,7 @@
   'use strict';
 
   /** @ngInject */
-  function UserCalendarController($stateParams, $log, UserService, ActivitiesService) {
+  function UserCalendarController($stateParams, $log, UserService, ActivitiesService, $location) {
     var vm =  this;
     /**
      * Attributes
@@ -20,7 +20,7 @@
     vm.onViewTitleChanged = onViewTitleChanged;
     vm.onRangeChanged = onRangeChanged;
     vm.loadActivities = loadActivities;
-
+    vm.editDayActivities = editDayActivities;
 
     init();
 
@@ -34,6 +34,11 @@
           vm.user.dobTmp = new Date(Number(vm.user.dob));
         });
       }
+    }
+
+    function editDayActivities(event){
+      $log.info("Editing activities");
+      $location.path("/tab/editActivity/" + vm.user.id + "/" + event.doa);
     }
 
     function onViewTitleChanged(newTitle){
@@ -65,6 +70,6 @@
 
   };
 
-  UserCalendarController.$inject = ["$stateParams", "$log", "UserService", "ActivitiesService"];
+  UserCalendarController.$inject = ["$stateParams", "$log", "UserService", "ActivitiesService", '$location'];
   angular.module('Training').controller('UserCalendarController',UserCalendarController);
 })();

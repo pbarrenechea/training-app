@@ -40,7 +40,7 @@
         }
     })
     .state('tab.userActivities', {
-      url: '/editActivity/:action/:userId/:date',
+      url: '/editActivity/:userId/:date',
       views: {
         'tab-users': {
           templateUrl: 'views/activities.form.html',
