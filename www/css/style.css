@@ -99,6 +99,14 @@
   border: 1px solid #ccc;
   width: 60px;
   margin-top: 10px;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.activity-time-component{
+  width: 150px;
+  float:left;
+  font-size: 12px;
 }
 
 .activity-time-field .activity-time-label, .activity-time-label {
@@ -106,7 +114,7 @@
   margin-left: 10px;
   margin-right: 10px;
   vertical-align: middle;
-  margin-top: 15px;
+  margin-top: 9px;
 }
 .activities-button-toolbar{
   text-align: right;
@@ -138,4 +146,23 @@
 .item-activity-separator{
   margin-top: 10px;
   color: #CCC;
+}
+
+.button-save {
+  margin: auto;
+  margin-top: 20px;
+  width: 90px;
+  display: block;
+}
+
+input.custom-input-field {
+  height: 20px;
+}
+
+label.custom-item-label {
+  padding: 8px;
+}
+
+.tabs-striped.tabs-dark .tab-item.tab-item-active, .tabs-striped.tabs-dark .tab-item.active, .tabs-striped.tabs-dark .tab-item.activated {
+  border-color: #111111;
 }

@@ -5,28 +5,28 @@
 <ion-scroll direction="y" >
   <div class="list list-inset formContent">
     <form name="editUserForm" novalidate="" ng-submit="EditU.save(editUserForm)">
-    <label class="item item-input " ng-class="{ 'has-errors' : editUserForm.firstName.$invalid, 'no-errors' : editUserForm.firstName.$valid }">
-      <input type="text" name="firstName" placeholder="Nombre" ng-model="EditU.user.firstName" required />
+    <label class="item custom-item-label item-input-stacked " ng-class="{ 'has-errors' : editUserForm.firstName.$invalid, 'no-errors' : editUserForm.firstName.$valid }">
+      <input class="custom-input-field" type="text" name="firstName" placeholder="Nombre" ng-model="EditU.user.firstName" required />
     </label>
     <div ng-messages="editUserForm.firstName.$error" class="error-container" role="alert">
       <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
     </div>
-    <label class="item item-input" ng-class="{ 'has-errors' : editUserForm.lastName.$invalid, 'no-errors' : editUserForm.lastName.$valid }">
-      <input type="text" name="lastName" placeholder="Apellido"  ng-model="EditU.user.lastName" required />
+    <label class="item custom-item-label item-input-stacked" ng-class="{ 'has-errors' : editUserForm.lastName.$invalid, 'no-errors' : editUserForm.lastName.$valid }">
+      <input class="custom-input-field" type="text" name="lastName" placeholder="Apellido"  ng-model="EditU.user.lastName" required />
     </label>
       <div ng-messages="editUserForm.lastName.$error" class="error-container" role="alert">
         <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
       </div>
 
-    <label class="item item-input item-floating-label" ng-class="{ 'has-errors' : editUserForm.dob.$invalid, 'no-errors' : editUserForm.dob.$valid }">
-      <input type="date" name="dob" placeholder="Fecha de nacimiento"  ng-model="EditU.user.dobTmp" required />
+    <label class="item custom-item-label item-input-stacked" ng-class="{ 'has-errors' : editUserForm.dob.$invalid, 'no-errors' : editUserForm.dob.$valid }">
+      <input class="custom-input-field" type="date" name="dob" placeholder="Fecha de nacimiento"  ng-model="EditU.user.dobTmp" required />
     </label>
     <div ng-messages="editUserForm.dob.$error" class="error-container" role="alert">
       <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
     </div>
 
-    <label class="item item-input"  ng-class="{ 'has-errors' : editUserForm.email.$invalid, 'no-errors' : editUserForm.email.$valid }" >
-      <input type="email" name="email" placeholder="Email" ng-model="EditU.user.email" required />
+    <label class="item custom-item-label item-input-stacked"  ng-class="{ 'has-errors' : editUserForm.email.$invalid, 'no-errors' : editUserForm.email.$valid }" >
+      <input class="custom-input-field" type="email" name="email" placeholder="Email" ng-model="EditU.user.email" required />
     </label>
     <div ng-messages="editUserForm.email.$error" class="error-container" role="alert">
       <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
@@ -37,7 +37,7 @@
     </label>
       <input type="hidden" ng-model="EditU.user.id">
       <input type="hidden" ng-model="EditU.user.action">
-      <button class="button button-full button-dark" type="submit">
+      <button class="button button-dark button-save" type="submit">
         Guardar
       </button>
   </form>

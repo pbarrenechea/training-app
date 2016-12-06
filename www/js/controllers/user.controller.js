@@ -36,7 +36,9 @@
     function confirmDelete(userId) {
       var confirmPopup = $ionicPopup.confirm({
         title: 'Eliminar un Atleta',
-        template: '¿Está seguro?'
+        template: '¿Está seguro?',
+        cancelType: 'button-dark',
+        okType: 'button-dark'
       });
       confirmPopup.then(function (res) {
         if (res) {

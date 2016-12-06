@@ -13,21 +13,29 @@
   </label>
   <div class="item activity-time-field">
     <span class="input-label">Tiempo de actividad</span>
-    <input type="number" class="activity-time-input" name="activityHours" ng-model="activity.hours" min="0" /><span class="activity-time-label">horas</span>
-    <input type="number" class="activity-time-input" name="activityMinutes" ng-model="activity.minutes" min="0" max="60" /><span class="activity-time-label">minutos</span>
-    <input type="number" class="activity-time-input" name="activitySeconds" ng-model="activity.seconds" min="0" max="60" /><span class="activity-time-label">segundos</span>
+    <div class="activity-time-component">
+      <input type="number" class="custom-input-field activity-time-input" name="activityHours" ng-model="activity.hours" min="0" /><span class="activity-time-label">horas</span>
+    </div>
+    <div class="activity-time-component">
+      <input type="number" class="custom-input-field activity-time-input" name="activityMinutes" ng-model="activity.minutes" min="0" max="60" /><span class="activity-time-label">minutos</span>
+    </div>
+    <div class="activity-time-component">
+      <input type="number" class="custom-input-field activity-time-input" name="activitySeconds" ng-model="activity.seconds" min="0" max="60" /><span class="activity-time-label">segundos</span>
+    </div>
   </div>
   <label class="item ">
     <span class="input-label">Distancia</span>
-    <input type="number" class="activity-time-input" ng-model="activity.distance" /><span class="activity-time-label">metros</span>
+    <div class="activity-time-component">
+      <input type="number" class="custom-input-field activity-time-input" ng-model="activity.distance" /><span class="activity-time-label">metros</span>
+    </div>
   </label>
   <label class="item ">
     <span class="input-label">Series</span>
-    <input type="number" class="activity-time-input" ng-model="activity.frequency" />
+    <input type="number" class="custom-input-field activity-time-input" ng-model="activity.frequency" />
   </label>
   <label class="item  ">
     <span class="input-label">Repeticiones</span>
-    <input type="number" class="activity-time-input" ng-model="activity.quantity" />
+    <input type="number" class="custom-input-field activity-time-input" ng-model="activity.quantity" />
   </label>
 </div>
 <hr class="item-activity-separator"/>

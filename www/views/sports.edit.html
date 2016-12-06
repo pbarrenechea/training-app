@@ -4,8 +4,8 @@
 </div>
   <div class="list list-inset formContent">
     <form name="editSportForm" novalidate="" ng-submit="EditS.save(editSportForm)">
-      <label class="item item-input " ng-class="{ 'has-errors' : editSportForm.name.$invalid, 'no-errors' : editSportForm.name.$valid }">
-        <input type="text" name="name" placeholder="Nombre" ng-model="EditS.sport.name" required />
+      <label class="item custom-item-label item-input-stacked" ng-class="{ 'has-errors' : editSportForm.name.$invalid, 'no-errors' : editSportForm.name.$valid }">
+        <input class="custom-input-field" type="text" name="name" placeholder="Nombre" ng-model="EditS.sport.name" required />
       </label>
       <div ng-messages="editSportForm.name.$error" class="error-container" role="alert">
         <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
@@ -13,7 +13,7 @@
 
       <input type="hidden" ng-model="EditS.sport.id">
       <input type="hidden" ng-model="EditS.sport.action">
-      <button class="button button-full button-dark" type="submit">
+      <button class="button button-dark button-save" type="submit">
         Guardar
       </button>
     </form>

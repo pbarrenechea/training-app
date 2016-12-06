@@ -1,6 +1,6 @@
 <div class="bar bar-header bar-dark">
   <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="/#/tab/userCalendar/{{activities.userId}}"></a>
-  <h1 class="title">Plan de entrenamiento para {{activities.user.firstName}} {{ activities.user.lastName }}</h1>
+  <h1 class="title">{{activities.user.firstName}} {{ activities.user.lastName }}</h1>
 </div>
 <ion-scroll direction="y" >
 <div class="list list-inset formContent">
@@ -8,9 +8,8 @@
     <button class="button icon-left button-small button-dark ion-android-add" ng-click="activities.addActivity()"> Agregar actividad</button>
   </div>
   <form name="editActivityForm" novalidate="" ng-submit="activities.save(editActivityForm)">
-    <label class="item item-input " ng-class="{ 'has-errors' : editActivityForm.doa.$invalid, 'no-errors' : editActivityForm.doa.$valid }">
-      <span class="input-label">Fecha de actividad</span>
-      <input type="date" name="doa"  ng-readonly="{{activities.dateReadOnly}}"  ng-model="activities.activityDate" required />
+    <label class="item custom-item-label item-input-stacked " ng-class="{ 'has-errors' : editActivityForm.doa.$invalid, 'no-errors' : editActivityForm.doa.$valid }">
+      <input class="custom-input-field" type="date" name="doa"  ng-readonly="{{activities.dateReadOnly}}"  ng-model="activities.activityDate" required />
     </label>
     <div ng-messages="editActivityForm.doa.$error" class="error-container" role="alert">
       <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
@@ -22,7 +21,7 @@
           toggle="activities.toggleActivityVisibility"></activity-fields>
     </div>
     <input type="hidden" ng-model="activities.userId">
-    <button class="button button-full button-dark" type="submit">
+    <button class="button button-dark button-save" type="submit">
       Guardar
     </button>
   </form>
