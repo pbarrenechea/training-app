@@ -2,7 +2,7 @@
   'use strict';
 
   /** @ngInject */
-  function SportsController( $log, SportService, $ionicFilterBar, $location) {
+  function SportsController( $log, SportService, $ionicFilterBar, $location, $ionicPopup) {
     var vm =  this;
     /**
      * Attributes
@@ -15,7 +15,7 @@
      */
     //vm.showFilterBar = showFilterBar;
     //vm.filterBar;
-    vm.deleteSport = deleteSport;
+    vm.confirmDelete = confirmDelete;
     vm.showFilterBar = showFilterBar;
 
     reloadSports();
@@ -32,7 +32,19 @@
         reloadSports();
       });
     }
-    
+
+    function confirmDelete( sportId){
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Eliminar un Deporte',
+        template: '¿Está seguro?'
+      });
+      confirmPopup.then(function (res) {
+        if (res) {
+          deleteSport(sportId);
+        }
+      });
+    }
+
     function showFilterBar(){
       vm.logger.log("Triggering filter bar");
       vm.filterBar = $ionicFilterBar.show({
@@ -46,6 +58,6 @@
     }
   };
 
-  SportsController.$inject = ["$log", "SportService","$ionicFilterBar", "$location"];
+  SportsController.$inject = ["$log", "SportService","$ionicFilterBar", "$location", "$ionicPopup"];
   angular.module('Training').controller('SportsController',SportsController);
 })();

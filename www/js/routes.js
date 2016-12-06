@@ -31,6 +31,7 @@
     })
     .state('tab.userCalendar', {
       url: '/userCalendar/:userId',
+      cache: false,
         views:{
           'tab-users': {
             templateUrl: 'views/user.calendar.html',

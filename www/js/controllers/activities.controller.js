@@ -50,10 +50,10 @@
 
      function initActivities() {
        vm.userId = $stateParams.userId;
-       vm.activityDate = new Date(Number($stateParams.date));
        var doa = $stateParams.date;
        if (vm.userId !== '') {
-         if (vm.activityDate !== '') {
+         if ( doa !== '') {
+           vm.activityDate = new Date(Number(doa));
            vm.dateReadOnly = true;
            ActivitiesService.getActiviesByDay(vm.userId, doa).then(function (result) {
              vm.activities = result;

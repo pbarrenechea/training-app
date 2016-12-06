@@ -2,7 +2,7 @@
   'use strict';
 
   /** @ngInject */
-  function UsersController( $log, UserService, $ionicFilterBar, $location) {
+  function UsersController( $log, UserService, $ionicFilterBar, $location, $ionicPopup, ActivitiesService) {
     var vm =  this;
     /**
      * Attributes
@@ -16,7 +16,7 @@
      */
     vm.showFilterBar = showFilterBar;
     vm.filterBar;
-    vm.deleteUser = deleteUser;
+    vm.confirmDelete = confirmDelete;
     reloadUsers();
 
     function reloadUsers(){
@@ -27,11 +27,23 @@
 
     function deleteUser(userId){
       vm.logger.log("Deleting user");
+      ActivitiesService.deleteUserActivities(userId);
       UserService.Delete(userId).then(function(response){
         reloadUsers();
       });
     }
 
+    function confirmDelete(userId) {
+      var confirmPopup = $ionicPopup.confirm({
+        title: 'Eliminar un Atleta',
+        template: '¿Está seguro?'
+      });
+      confirmPopup.then(function (res) {
+        if (res) {
+          deleteUser(userId);
+        }
+      });
+    }
     function showFilterBar(){
       vm.logger.log("Triggering filter bar");
       vm.filterBar = $ionicFilterBar.show({
@@ -49,6 +61,6 @@
   };
 
 
-  UsersController.$inject = ["$log", "UserService","$ionicFilterBar", "$location"];
+  UsersController.$inject = ["$log", "UserService","$ionicFilterBar", "$location", "$ionicPopup", "ActivitiesService"];
   angular.module('Training').controller('UsersController',UsersController);
 })();

@@ -26,6 +26,8 @@
           }
           vm.user.dobTmp = new Date(Number(vm.user.dob));
         });
+      }else {
+        vm.user.dobTmp = new Date(1970, 1, 1, 0, 0, 0, 0);
       }
     }
 

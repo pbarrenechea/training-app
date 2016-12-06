@@ -27,6 +27,7 @@
     service.getActiviesByDay = getActiviesByDay;
     service.getActivitiesByRange = getActivitiesByRange;
     service.deleteActivitiesByDate = deleteActivitiesByDate;
+    service.deleteUserActivities = deleteUserActivities;
 
     return service;
     /**
@@ -162,5 +163,22 @@
           $log.log(response);
         });
     }
+
+    /**
+     * @ngdoc method
+     * @name deleteUserActivities
+     * @methodOf Training.ActivitiesService
+     * @description
+     * Deletes all the activities for a user
+     * @param {number} userId id of the user
+     * @returns {object} response of the operation
+     */
+    function deleteUserActivities(userId){
+      return DB.query('DELETE FROM activities where userId = ' + userId)
+        .then(function(response){
+          $log.log(response);
+        });
+    }
+
   }
 })();
