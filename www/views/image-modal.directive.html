@@ -1,0 +1,10 @@
+<div>
+  <img ng-src="{{source}}" ng-click="showImage()" err-src="img/icon-user-default.png" class="userAvatar">
+  <script id="image-modal.html" type="text/ng-template">
+    <div class="modal image-modal transparent" ng-click="closeModal()">
+      <ion-pane class="transparent">
+        <img ng-src="{{source}}" class="fullscreen-image"/>
+      </ion-pane>
+    </div>
+  </script>
+</div>

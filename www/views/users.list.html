@@ -5,7 +5,7 @@
 </div>
   <div class="list">
   <div class="item item-avatar userListItem" href="#" ng-repeat="user in (users.userList | orderBy: ['lastName','name'])">
-    <img ng-src="{{user.picture}}" err-src="img/icon-user-default.png" class="userAvatar">
+    <image-modal source="user.picture"></image-modal>
     <span class="userName">{{ user.firstName }} {{ user.lastName }}</span>
     <button class="button button-small button-dark iconRight" ng-click="users.confirmDelete({{user.id}})">
       <i class="icon  ion-android-delete"></i>
