@@ -209,3 +209,8 @@ label.custom-item-label {
     opacity: 0;
   }
 }
+
+.activity-range-field{
+  float: left;
+  width: 100%;
+}
