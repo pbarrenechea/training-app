@@ -11,6 +11,7 @@
         'source': '=source'
       },
       controller: function($scope, $ionicModal){
+        $scope.defaultImg = 'img/icon-user-default.png';
         $ionicModal.fromTemplateUrl('image-modal.html', {
           scope: $scope,
           animation: 'slide-in-up'
@@ -24,6 +25,14 @@
 
         $scope.closeModal = function() {
           $scope.modal.hide();
+        };
+
+        $scope.getImageSource = function(){
+          if( $scope.source !== 'undefined' ){
+            return $scope.source;
+          }else{
+            return $scope.defaultImg;
+          }
         };
 
         //Cleanup the modal when we're done with it!
