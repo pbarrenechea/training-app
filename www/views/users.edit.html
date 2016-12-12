@@ -19,11 +19,20 @@
       </div>
 
     <label class="item custom-item-label item-input-stacked" ng-class="{ 'has-errors' : editUserForm.dob.$invalid, 'no-errors' : editUserForm.dob.$valid }">
+      <span class="input-label">Fecha de Nacimiento</span>
       <input class="custom-input-field" type="date" name="dob" placeholder="Fecha de nacimiento"  ng-model="EditU.user.dobTmp" required />
     </label>
     <div ng-messages="editUserForm.dob.$error" class="error-container" role="alert">
       <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
     </div>
+
+      <label class="item custom-item-label item-input-stacked" ng-class="{ 'has-errors' : editUserForm.dos.$invalid, 'no-errors' : editUserForm.dos.$valid }">
+        <span class="input-label">Inicio de actividad</span>
+        <input class="custom-input-field" type="date" name="dos" placeholder="Inicio de actividad"  ng-model="EditU.user.dosTmp" required />
+      </label>
+      <div ng-messages="editUserForm.dos.$error" class="error-container" role="alert">
+        <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
+      </div>
 
     <label class="item custom-item-label item-input-stacked"  ng-class="{ 'has-errors' : editUserForm.email.$invalid, 'no-errors' : editUserForm.email.$valid }" >
       <input class="custom-input-field" type="email" name="email" placeholder="Email" ng-model="EditU.user.email" required />

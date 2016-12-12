@@ -71,8 +71,8 @@
      * @returns {object} response of the operation
      */
     function Create(user) {
-      var query = "INSERT INTO users (firstName, lastName, dob, email, picture) VALUES (?,?,?,?,?)";
-      return DB.query(query, [user.firstName, user.lastName, user.dob, user.email, user.picture]).then(function(res){
+      var query = "INSERT INTO users (firstName, lastName, dob, email, picture, dos) VALUES (?,?,?,?,?,?)";
+      return DB.query(query, [user.firstName, user.lastName, user.dob, user.email, user.picture, user.dos]).then(function(res){
         service.logger.log("Succesfully inserted");
       }, function(err){
         service.logger.error(err);
@@ -92,7 +92,8 @@
       var query = "UPDATE users set firstName = '" + user.firstName + "', lastName = '" + user.lastName + "'";
       query += ", dob = " + user.dob + ", email = '" + user.email + "' ";
       query += ", picture = '" + user.picture + "' ";
-      query += "WHERE id = " + user.id;
+      query += ", dos = " + user.dos;
+      query += " WHERE id = " + user.id;
       return DB.query(query).then(function(res){
         service.logger.log("Succesfully updated");
       }, function(err){

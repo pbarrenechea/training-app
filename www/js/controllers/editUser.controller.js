@@ -25,6 +25,7 @@
             vm.user[k] = user[k];
           }
           vm.user.dobTmp = new Date(Number(vm.user.dob));
+          vm.user.dosTmp = new Date(Number(vm.user.dos));
         });
       }else {
         vm.user.dobTmp = new Date(1970, 1, 1, 0, 0, 0, 0);
@@ -48,6 +49,7 @@
     function save(form){
       if( form.$valid ){
         vm.user.dob = vm.user.dobTmp.getTime();
+        vm.user.dos = vm.user.dosTmp.getTime();
         if( vm.user.action === "new" ){
           createUser();
         }else{

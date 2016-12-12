@@ -9,7 +9,8 @@
             {name: 'id', type: 'integer primary key'},
             {name: 'firstName', type: 'text'},
             {name: 'lastName', type: 'text'},
-            {name: 'dob', type: 'long'},
+            {name: 'dob', type: 'long'}, //Day of birth
+            {name: 'dos', type: 'long'}, //Day of start
             {name: 'email', type: 'text'},
             {name: 'picture', type: 'text'}
           ]
