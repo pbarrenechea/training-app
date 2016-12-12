@@ -25,14 +25,14 @@
   </div>
   <label class="item ">
     <span class="input-label">Distancia</span>
-    <input class="activity-range-field"  type="range"  min="0" max="42000" step="50" ng-model="activity.distance" />
     <div class="activity-time-component">
-      <span class="activity-time-label"> {{activity.distance}} metros</span>
+      <input class="custom-input-field activity-time-input" step="50"  type="number"  min="0" max="42000"  ng-model="activity.distance" />
+      <span class="activity-time-label"> metros</span>
     </div>
   </label>
   <label class="item ">
     <span class="input-label">Series</span>
-    <input type="range" class="activity-range-field"  min="0" max="50" step="1" ng-model="activity.frequency" />
+    <input type="range" class="activity-range-field"  min="0" max="30" step="1" ng-model="activity.frequency" />
     <div class="activity-time-component">
       <span class="activity-time-label"> {{activity.frequency}} series</span>
     </div>
