@@ -67,6 +67,7 @@
 .calendar-container {
   position: relative;
   margin-top: 88px;
+  height: 250%;
 }
 
 .error-container {
@@ -123,7 +124,7 @@
   margin-left: 10px;
   margin-right: 10px;
   vertical-align: middle;
-  margin-top: 9px;
+  margin-top: 15px;
 }
 .activities-button-toolbar{
   text-align: right;
@@ -145,6 +146,7 @@
   margin-top: 8px;
   float: left;
   font-size: 16px;
+  width: 200px;
 }
 
 .activity-item-toolbar button {
@@ -160,12 +162,13 @@
 .button-save {
   margin: auto;
   margin-top: 20px;
-  width: 90px;
+  width: 100px;
   display: block;
 }
 
 input.custom-input-field {
-  height: 20px;
+  height: 30px;
+  border: solid 1px #CCC;
 }
 
 label.custom-item-label {

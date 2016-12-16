@@ -1,8 +1,8 @@
 <div>
 <div class="activity-item-toolbar">
   <span>Actividad #{{index + 1 }}</span>
-  <button type="button" ng-click="deleteActivity(index)" class="button button-small item-button-right button-dark icon ion-trash-b" ></button>
-  <button type="button" ng-click="toggleActivity(index)" class="button button-small item-button-right button-dark icon" ng-class="{'ion-android-arrow-dropup-circle': activity.visible, 'ion-android-arrow-dropdown-circle': !activity.visible}" ></button>
+  <button type="button" ng-click="deleteActivity(index)" class="button button-small item-button-right button-positive icon ion-trash-b" ></button>
+  <button type="button" ng-click="toggleActivity(index)" class="button button-small item-button-right button-positive icon" ng-class="{'ion-android-arrow-dropup-circle': activity.visible, 'ion-android-arrow-dropdown-circle': !activity.visible}" ></button>
 </div>
 <div ng-show="activity.visible">
   <label class="item item-input ">
@@ -30,6 +30,21 @@
       <span class="activity-time-label"> metros</span>
     </div>
   </label>
+
+  <label class="item ">
+    <span class="input-label">Ritmo</span>
+    <div class="activity-time-component">
+      <input class="custom-input-field" type="text"  ng-model="activity.rithym" />
+    </div>
+  </label>
+
+  <label class="item ">
+    <span class="input-label">Pausa</span>
+    <div class="activity-time-component">
+      <input class="custom-input-field" type="text"  ng-model="activity.pause" />
+    </div>
+  </label>
+
   <label class="item ">
     <span class="input-label">Series</span>
     <input type="range" class="activity-range-field"  min="0" max="30" step="1" ng-model="activity.frequency" />
@@ -39,7 +54,7 @@
   </label>
   <label class="item  ">
     <span class="input-label">Repeticiones</span>
-    <input type="range" class="activity-range-field" min="0" max="130" step="1" ng-model="activity.quantity" />
+    <input type="range" class="activity-range-field" min="0" max="50" step="1" ng-model="activity.quantity" />
     <div class="activity-time-component">
       <span class="activity-time-label"> {{activity.quantity}} repeticiones</span>
     </div>

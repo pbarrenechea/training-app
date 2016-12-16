@@ -37,8 +37,8 @@
       var confirmPopup = $ionicPopup.confirm({
         title: 'Eliminar un Deporte',
         template: '¿Está seguro?',
-        cancelType: 'button-dark',
-        okType: 'button-dark'
+        cancelType: 'button-positive',
+        okType: 'button-positive'
       });
       confirmPopup.then(function (res) {
         if (res) {

@@ -1,15 +1,19 @@
-<div class="bar bar-header bar-dark trainingHeaderList" >
-  <a class="button icon ion-android-search" ng-click="sports.showFilterBar()" ></a>
+<div class="bar bar-header bar-positive trainingHeaderList" >
+  <a class="button button-positive" ng-click="sports.showFilterBar()" >
+    <i class="icon ion-android-search"></i>
+  </a>
   <h1 class="title">Deportes</h1>
-  <a class="button icon ion-android-person-add" href="#/tab/editSport/new/" ></a>
+  <a class="button button-clear button-positive" href="#/tab/editSport/new/" >
+    <i class="icon  ion-plus"></i>
+  </a>
 </div>
 <div class="list">
   <div class="item  userListItem" href="#" ng-repeat="sport in (sports.sportList | orderBy: ['name'])">
     {{ sport.name }}
-    <button class="button button-small button-dark iconRight" ng-click="sports.confirmDelete({{sport.id}})">
+    <button class="button button-small button-positive iconRight" ng-click="sports.confirmDelete({{sport.id}})">
       <i class="icon  ion-android-delete"></i>
     </button>
-    <a class="button button-small button-dark iconRight" href="#/tab/editSport/edit/{{sport.id}}">
+    <a class="button button-small button-positive iconRight" href="#/tab/editSport/edit/{{sport.id}}">
       <i class="icon  ion-android-create"></i>
     </a>
   </div>

@@ -1,7 +1,9 @@
-<div class="bar bar-header bar-dark">
+<div class="bar bar-header bar-positive">
   <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users"></a>
   <h1 class="title">{{calendar.user.firstName}} {{ calendar.user.lastName }}</h1>
-  <a class="button icon ion-android-person-add" href="#/tab/editActivity/{{calendar.user.id}}/" ></a>
+  <a class="button button-positive " href="#/tab/editActivity/{{calendar.user.id}}/" >
+    <i class="icon  ion-plus"></i>
+  </a>
 </div>
 <div class="bar bar-subheader bar-stable calendarSubHeader">
   <h2 class="title">{{ calendar.title }}</h2>

@@ -57,14 +57,22 @@
      * @returns {array}
      */
     function getActivitiesByRange(userId, startDate, endDate){
-      return DB.query('SELECT * from activities where userId = ' + userId + ' and ( doa >= ' + startDate + " and doa <= " + endDate + ")" )
+      var currentQuery = 'SELECT * from activities ';
+      currentQuery += 'where userId = ' + userId + ' and ( doa >= ' + startDate + " and doa <= " + endDate + ")";
+      currentQuery += "ORDER BY doa ASC, sort_order ASC";
+      console.log(currentQuery);
+      return DB.query( currentQuery )
         .then(function(result){
           return DB.fetchAll(result);
         });
     }
 
     function getActiviesByDay(userId, date){
-      return DB.query('SELECT * from activities where userId = ' + userId + ' and doa = ' + date )
+      var currentQuery = 'SELECT * from activities ';
+      currentQuery += ' where userId = ' + userId + ' and doa = ' + date;
+      currentQuery += " ORDER BY sort_order DESC";
+      console.log(currentQuery);
+      return DB.query( currentQuery )
         .then(function(result){
           return DB.fetchAll(result);
         });
@@ -100,8 +108,19 @@
      * @returns {object} response of the operation
      */
     function Create(activity) {
-      var query = "INSERT INTO activities (userId, activity, hours, minutes, seconds, distance, frequency, quantity, doa) VALUES (?,?,?,?,?,?,?,?,?)";
-      return DB.query(query, [activity.userId, activity.activity, activity.hours, activity.minutes, activity.seconds, activity.distance, activity.frequency, activity.quantity, activity.doa]).then(function(res){
+      var query = "INSERT INTO activities (userId, activity, hours, minutes, seconds, distance, frequency, quantity, doa, rithym, pause, sort_order) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+      return DB.query(query, [activity.userId,
+        activity.activity,
+        activity.hours,
+        activity.minutes,
+        activity.seconds,
+        activity.distance,
+        activity.frequency,
+        activity.quantity,
+        activity.doa,
+        activity.rithym,
+        activity.pause,
+        activity.sort_order]).then(function(res){
         service.logger.log("Succesfully inserted");
       }, function(err){
         service.logger.error(err);
@@ -122,7 +141,10 @@
       query += ", toa = '" + activity.toa + "', distance = '" + activity.distance + "' ";
       query += ", frequency = '" + activity.frequency + "', ";
       query += " quantity = '" + activity.quantity + "', ";
-      query += " doa  = " + activity.doa;
+      query += " doa  = " + activity.doa + ", ";
+      query += " rithym = '" + activity.rithym + "', ";
+      query += " pause = '" + activity.pause + "', ";
+      query += " order = '" + activity.order;
       query += " WHERE id = " + activity.id;
       return DB.query(query).then(function(res){
         service.logger.log("Succesfully updated");

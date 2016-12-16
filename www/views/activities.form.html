@@ -1,11 +1,11 @@
-<div class="bar bar-header bar-dark">
+<div class="bar bar-header bar-positive">
   <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/userCalendar/{{activities.userId}}"></a>
   <h1 class="title">{{activities.user.firstName}} {{ activities.user.lastName }}</h1>
 </div>
 <ion-scroll direction="y" >
 <div class="list list-inset formContent">
   <div class="activities-button-toolbar">
-    <button class="button icon-left button-small button-dark ion-android-add" ng-click="activities.addActivity()"> Agregar actividad</button>
+    <button class="button icon-left button-small button-positive ion-android-add" ng-click="activities.addActivity()"> Agregar actividad</button>
   </div>
   <form name="editActivityForm" novalidate="" ng-submit="activities.save(editActivityForm)">
     <label class="item custom-item-label item-input-stacked " ng-class="{ 'has-errors' : editActivityForm.doa.$invalid, 'no-errors' : editActivityForm.doa.$valid }">
@@ -21,7 +21,7 @@
           toggle="activities.toggleActivityVisibility"></activity-fields>
     </div>
     <input type="hidden" ng-model="activities.userId">
-    <button class="button button-dark button-save" type="submit">
+    <button class="button button-positive button-save" type="submit">
       Guardar
     </button>
   </form>

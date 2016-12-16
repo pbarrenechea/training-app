@@ -61,6 +61,8 @@
           vm.userActivities[i].title += "Tiempo: " + vm.userActivities[i].hours + " horas ";
           vm.userActivities[i].title +=  vm.userActivities[i].minutes + " minutos ";
           vm.userActivities[i].title +=  vm.userActivities[i].seconds + " segundos <br>";
+          vm.userActivities[i].title += "Ritmo: " + vm.userActivities[i].rithym + "<br>";
+          vm.userActivities[i].title += "Pausa: " + vm.userActivities[i].pause + "<br>";
           vm.userActivities[i].title +=  "Distancia: " + vm.userActivities[i].distance + " metros <br>";
           vm.userActivities[i].title +=  "Series: " + vm.userActivities[i].frequency + "<br>";
           vm.userActivities[i].title +=  "Repeticiones: " + vm.userActivities[i].quantity;

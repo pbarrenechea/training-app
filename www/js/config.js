@@ -32,8 +32,11 @@
             {name: 'minutes', type: 'long'},
             {name: 'seconds', type: 'long'},
             {name: 'distance', type: 'long'},//metres
+            {name: 'rithym', type: 'text'},
+            {name: 'pause', type: 'text'},
             {name: 'frequency', type: 'long'},
             {name: 'quantity', type: 'long'},
+            {name: 'order', type: 'long'},
             {name: 'doa', type: 'long'}//day of activity
           ]
         }

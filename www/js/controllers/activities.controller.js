@@ -31,7 +31,9 @@
          seconds: 0,
          distance: 0,
          frequency: 0,
-         quantity: 0
+         quantity: 0,
+         rithym: '',
+         pause: ''
        });
      }
 
@@ -88,12 +90,18 @@
        if (form.$valid) {
          vm.doa = vm.activityDate.getTime();
          ActivitiesService.deleteActivitiesByDate(vm.userId, vm.doa).then(function () {
-           vm.activities.forEach(function (element) {
+           vm.elementsToInsert = vm.activities.length;
+           vm.activities.forEach(function (element, index) {
              element.doa = vm.doa;
              element.userId = vm.userId;
+             element.sort_order = index;
              ActivitiesService.Create(element).then(function (response) {
                $log.info("Succesfully inserted element");
-               $location.path("/tab/userCalendar/" + vm.userId );
+               vm.elementsToInsert--;
+               $log.info("To insert: " + vm.elementsToInsert);
+               if( vm.elementsToInsert === 0 ){//If all elements were inserted, redirect
+                 $location.path("/tab/userCalendar/" + vm.userId );
+               }
              });
            });
          });
