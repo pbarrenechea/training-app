@@ -59,7 +59,7 @@
     function getActivitiesByRange(userId, startDate, endDate){
       var currentQuery = 'SELECT * from activities ';
       currentQuery += 'where userId = ' + userId + ' and ( doa >= ' + startDate + " and doa <= " + endDate + ")";
-      currentQuery += "ORDER BY doa ASC, sort_order ASC";
+      currentQuery += "ORDER BY doa ASC, sort_order DESC";
       console.log(currentQuery);
       return DB.query( currentQuery )
         .then(function(result){
@@ -70,7 +70,7 @@
     function getActiviesByDay(userId, date){
       var currentQuery = 'SELECT * from activities ';
       currentQuery += ' where userId = ' + userId + ' and doa = ' + date;
-      currentQuery += " ORDER BY sort_order DESC";
+      currentQuery += " ORDER BY sort_order ASC";
       console.log(currentQuery);
       return DB.query( currentQuery )
         .then(function(result){

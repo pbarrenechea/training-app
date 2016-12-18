@@ -92,10 +92,11 @@
          ActivitiesService.deleteActivitiesByDate(vm.userId, vm.doa).then(function () {
            vm.elementsToInsert = vm.activities.length;
            vm.activities.forEach(function (element, index) {
-             element.doa = vm.doa;
-             element.userId = vm.userId;
-             element.sort_order = index;
-             ActivitiesService.Create(element).then(function (response) {
+             var newActivity = angular.copy(element);
+             newActivity.doa = vm.doa;
+             newActivity.userId = vm.userId;
+             newActivity.sort_order = index;
+             ActivitiesService.Create(newActivity).then(function (response) {
                $log.info("Succesfully inserted element");
                vm.elementsToInsert--;
                $log.info("To insert: " + vm.elementsToInsert);

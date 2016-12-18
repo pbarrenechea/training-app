@@ -38,7 +38,7 @@
     self.fetchAll = function(result) {
       var output = [];
       for (var i = 0; i < result.rows.length; i++) {
-        output.push(result.rows.item(i));
+        output.push(angular.copy(result.rows.item(i)));
       }
       return output;
     };
