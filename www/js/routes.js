@@ -71,6 +71,17 @@
             controllerAs: 'EditS'
           }
         }
+      })
+      .state('tab.config', {
+        url: '/config',
+        cache: false,
+        views: {
+          'tab-config':{
+            templateUrl: 'views/config.html',
+            controller: 'ConfigController',
+            controllerAs: 'config'
+          }
+        }
       });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/tab/users');
