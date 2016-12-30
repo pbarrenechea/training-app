@@ -47,6 +47,28 @@
       return result.rows.item(0);
     };
 
+    self.checkColumns = function() {
+      angular.forEach(DB_CONFIG.tables, function (table) {
+        var query = 'SELECT * FROM ' + table.name + " LIMIT 1";
+        self.query(query).then(function (result) {
+          var firstRow;
+          if (result.rows.length > 0) {
+            firstRow = result.rows[0];
+          } else {
+            return;
+          }
+          angular.forEach(table.columns, function (column) {
+            if (!(column.name in firstRow)) {
+              var alterQuery = "alter table " + table.name + " add column " + column.name + " " + column.type + ";";
+              $log.info(alterQuery);
+              self.query(alterQuery).then(function () {
+                $log.info("Altered table");
+              });
+            }
+          });
+        });
+      });
+    }
     return self;
   };
 })();

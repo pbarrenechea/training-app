@@ -5,12 +5,13 @@
   'use strict';
 
   /** @ngInject */
-  function ConfigController($log, BackupService, $ionicLoading, FileService) {
+  function ConfigController($log, BackupService, $ionicLoading, DB) {
     var vm = this;
     vm.backup = backup;
+    vm.updateModel = updateModel;
     vm.itemsToBackup = 3;
     vm.blockingModal = undefined;
-    
+
     function cancelModal(){
       vm.itemsToBackup--;
       if( vm.itemsToBackup === 0 ){
@@ -29,7 +30,18 @@
       BackupService.backupUsers().then(cancelModal);
     }
 
+    function updateModel(){
+      $ionicLoading.show({
+        title: '',
+        template: '<ion-spinner icon="android"></ion-spinner>',
+      });
+      DB.checkColumns();
+      setTimeout(function(){
+        $ionicLoading.hide();
+      }, 2000);
+    }
+
   }
-  ConfigController.$inject = ["$log", "BackupService", "$ionicLoading", "FileService"];
+  ConfigController.$inject = ["$log", "BackupService", "$ionicLoading", "DB"];
   angular.module('Training').controller('ConfigController', ConfigController);
 })();

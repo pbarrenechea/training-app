@@ -19,7 +19,9 @@
           name: 'sports',
           columns: [
             {name: 'id', type: 'integer primary key'},
-            {name: 'name', type: 'text'}
+            {name: 'name', type: 'text'},
+            {name: 'frutanga', type: 'text'},
+            {name: 'frutanga_int', type: 'long'}
           ]
         },
         {
@@ -36,7 +38,7 @@
             {name: 'pause', type: 'text'},
             {name: 'frequency', type: 'long'},
             {name: 'quantity', type: 'long'},
-            {name: 'order', type: 'long'},
+            {name: 'sort_order', type: 'long'},
             {name: 'doa', type: 'long'}//day of activity
           ]
         }
