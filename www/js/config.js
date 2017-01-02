@@ -19,9 +19,7 @@
           name: 'sports',
           columns: [
             {name: 'id', type: 'integer primary key'},
-            {name: 'name', type: 'text'},
-            {name: 'frutanga', type: 'text'},
-            {name: 'frutanga_int', type: 'long'}
+            {name: 'name', type: 'text'}
           ]
         },
         {
