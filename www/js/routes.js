@@ -40,6 +40,28 @@
           }
         }
     })
+    .state('tab.userTests', {
+      url: '/userTests/:userId',
+      cache: false,
+      views: {
+        'tab-users': {
+          templateUrl: 'views/user.tests.html',
+          controller: 'UserTestsController',
+          controllerAs: 'tests'
+        }
+      }
+    })
+    .state('tab.editTest', {
+      url: '/editUserTest/:userId/:action/:id',
+      cache: false,
+      views: {
+        'tab-users': {
+          templateUrl: 'views/edit.test.html',
+          controller: 'EditTestController',
+          controllerAs: 'editTest'
+        }
+      }
+    })
     .state('tab.userActivities', {
       url: '/editActivity/:userId/:date',
       views: {

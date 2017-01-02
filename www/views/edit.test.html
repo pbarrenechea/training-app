@@ -1,0 +1,59 @@
+<div class="bar bar-header bar-positive">
+  <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/userTests/{{ editTest.user.id }}"> </a>
+  <h1 class="title">Test de velocidad</h1>
+</div>
+
+<div class="bar bar-subheader bar-stable calendarSubHeader">
+  <h2 class="title">Tests de velocidad para {{ editTest.user.firstName}} {{ editTest.user.lastName }}</h2>
+</div>
+<ion-scroll direction="y" >
+  <div class="list list-inset formContent editTestFormContent">
+    <form name="editTestForm" novalidate="" ng-submit="editTest.save(editTestForm)">
+
+      <label class="item custom-item-label item-input-stacked">
+        <span class="input-label">Fecha de Test</span>
+        <input class="custom-input-field" type="date" name="dot" placeholder="Fecha de Test"  ng-model="editTest.test.dotTmp" required />
+      </label>
+      <div ng-messages="editTestForm.dot.$error" class="error-container" role="alert">
+        <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
+      </div>
+
+      <label class="item ">
+        <span class="input-label">Distancia</span>
+        <div class="activity-time-component">
+          <input class="custom-input-field activity-time-input" step="1" name="distance" type="number"  min="0" max="10"  ng-model="editTest.test.distance" required />
+          <span class="activity-time-label"> kilometros</span>
+        </div>
+
+      </label>
+      <div ng-messages="editTestForm.distance.$error" class="error-container" role="alert">
+        <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
+      </div>
+
+      <div class="item activity-time-field">
+        <span class="input-label">Minutos</span>
+        <div class="activity-time-component">
+          <input type="number" class="custom-input-field activity-time-input" name="minutes" ng-model="editTest.test.minutes" min="0" max="60" required />
+        </div>
+      </div>
+      <div ng-messages="editTestForm.minutes.$error" class="error-container" role="alert">
+        <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
+      </div>
+      <div class="item activity-time-field">
+        <span class="input-label">Segundos</span>
+        <div class="activity-time-component">
+          <input type="number" class="custom-input-field activity-time-input" name="seconds" ng-model="editTest.test.seconds" min="0" max="60" required />
+        </div>
+      </div>
+      <div ng-messages="editTestForm.seconds.$error" class="error-container" role="alert">
+        <div  class="error" ng-message="required"> <i class="ion-information-circled"></i> Este campo es obligatorio</div>
+      </div>
+      <input type="hidden" ng-model="editTest.test.user_id" />
+      <input type="hidden" ng-model="editTest.test.id">
+      <input type="hidden" ng-model="editTest.test.action">
+      <button class="button button-positive button-save" type="submit">
+        Guardar
+      </button>
+    </form>
+  </div>
+</ion-scroll>

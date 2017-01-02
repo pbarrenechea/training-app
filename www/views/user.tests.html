@@ -1,0 +1,21 @@
+<div class="bar bar-header bar-positive">
+  <a class="button icon-left ion-chevron-left backbuttonCustom button-clear " href="#/tab/users"> </a>
+  <h1 class="title">Tests de velocidad</h1>
+  <a class="button button-positive " href="#/tab/editUserTest/{{ tests.user.id }}/new/" >
+    <i class="icon  ion-plus"></i>
+  </a>
+</div>
+<ion-content>
+<div class="bar bar-subheader bar-stable calendarSubHeader">
+  <h2 class="title">Tests de velocidad para {{ tests.user.firstName}} {{ tests.user.lastName }}</h2>
+</div>
+
+  <div class="list testList">
+    <div class="item item-divider" ng-repeat="test in (tests.tests)">
+        {{ test.dot }}
+       - {{ test.minutes }}
+       - {{ test.seconds }}
+       - {{ test.distance }}
+    </div>
+  </div>
+</ion-content>
