@@ -27,7 +27,7 @@
       return ActivitiesService.GetAll().then(function(activities){
         var strActivities = "";
         angular.forEach(activities, function(activity, key){
-          strActivities = insertQuery + "( ";
+          strActivities += insertQuery + "( ";
           strActivities += "'" + activity.userId + "', ";
           strActivities += "'" + activity.activity + "', ";
           strActivities += "'" + activity.toa + "', ";

@@ -16,12 +16,21 @@
           ]
         },
         {
+          name: 'speed_tests',
+          columns: [
+            {name: 'id', type: 'integer primary key'},
+            {name: 'dot', type: 'long'}, //date of test
+            {name: 'user_id', type: 'integer'},
+            {name: 'distance', type: 'long'},
+            {name: 'minutes', type: 'integer'},
+            {name: 'seconds', type: 'integer'}
+          ]
+        },
+        {
           name: 'sports',
           columns: [
             {name: 'id', type: 'integer primary key'},
-            {name: 'name', type: 'text'},
-            {name: 'frutanga', type: 'text'},
-            {name: 'frutanga_int', type: 'long'}
+            {name: 'name', type: 'text'}
           ]
         },
         {
