@@ -11,11 +11,16 @@
 </div>
 
   <div class="list testList">
-    <div class="item item-divider" ng-repeat="test in (tests.tests)">
-        {{ test.dot }}
-       - {{ test.minutes }}
-       - {{ test.seconds }}
-       - {{ test.distance }}
+    <div class="item " ng-repeat="test in (tests.tests)">
+       <span  class="userName">{{ test.dot | customdate }}
+       - {{ test.distance | rythim:test }}
+      </span>
+      <button class="button button-small button-positive iconRight" ng-click="tests.confirmDelete({{test.id}})">
+        <i class="icon  ion-android-delete"></i>
+      </button>
+      <a class="button button-small button-positive iconRight" href="#/tab/editUserTest/{{tests.user.id}}/edit/{{test.id}}">
+        <i class="icon  ion-android-create"></i>
+      </a>
     </div>
   </div>
 </ion-content>

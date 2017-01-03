@@ -38,8 +38,9 @@
 
     function updateCallback(){
       vm.logger.log("User created succesfully");
+      var userId = vm.test.user_id;
       vm.test = {};
-      $location.path("/userTests/" + vm.test.user_id);
+      $location.path("/tab/userTests/" + userId);
     }
 
     function save(form){
